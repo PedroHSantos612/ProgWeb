@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Instituto da computação</title>
+  <script>
+    let x = 1;
+    for(let y=1; y<=10; y++){
+      document.write("<table border='1'>",
+                    "<thead><tr><th colspan=2 >Produtos de "+y+" </th></tr></thead>");
+      for(let x=1; x<=10; x++){
+        document.write("<tr>",
+                         "<td>"+y+"x"+x+"</td>",
+                         "<td>"+y*x+"</td>",
+                       "</tr>");
+      }
+      document.write("</table>");
+    }
+  </script>
+
+  <style>
+    table {
+      text-align: center;
+      display: inline-table;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+</body>
+</html>
