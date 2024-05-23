@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        function getPCEscolha() {
+        const choices = ['Papel', 'Pedra', 'Tesoura'];
+        const randomIndex = Math.floor(Math.random() * 3);
+        return choices[randomIndex];
+        }
+        function jogada(playerChoice, computerChoice) {
+          if (playerChoice === computerChoice) {
+            return 'Empate';
+          } else if (
+            (playerChoice === 'Papel' && computerChoice === 'Pedra') ||
+            (playerChoice === 'Pedra' && computerChoice === 'Tesoura') ||
+            (playerChoice === 'Tesoura' && computerChoice === 'Papel')
+          ) {
+            return 'Vitória';
+          } else {
+            return 'Derrota';
+          }
+        }
+  function jokenpo() {
+    let score = 0;
+    let playing = true;
+    while (playing) {
+      let playerInput = parseInt(prompt("Escolha sua jogada:\n 1 - Papel\n 2 - Pedra\n 3 - Tesoura\n"));
+      console.log("Escolha sua jogada:\n 1 - Papel\n 2 - Pedra\n 3 - Tesoura\n");
+      let playerChoice;
+      switch (playerInput) {
+        case 1:
+          playerChoice = 'Papel';
+          break;
+        case 2:
+          playerChoice = 'Pedra';
+          break;
+        case 3:
+          playerChoice = 'Tesoura';
+          break;
+        default:
+          alert("Jogada inválida! Você perdeu a rodada.");
+          console.log("Jogada inválida! Você perdeu a rodada.");
+          playing = false;
+          continue;
+      }
+      const computerChoice = getPCEscolha();
+      alert(`Computador jogou ${computerChoice}`);
+      console.log(`Computador jogou ${computerChoice}`);
+      const result = jogada(playerChoice, computerChoice);
+      if (result === 'Vitória') {
+        score++;
+        alert(`Você ganhou!`);
+        console.log(`Você ganhou!`);
+      } else if (result === 'Empate') {
+        alert("A rodada empatou!");
+        console.log("A rodada empatou!");
+      } else {
+        playing = false;
+      }
+    }
+    alert(`Você Perdeu! Sua pontuação foi de ${score}`);
+    console.log(`Você Perdeu! Sua pontuação foi de ${score}`);
+  }
+  jokenpo();
+    </script>
+</html>
