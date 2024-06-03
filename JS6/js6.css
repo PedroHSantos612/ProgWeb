@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    height: 100cm;
+    overflow: hidden;
+    position: relative; 
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    position: absolute;
+    border-radius: 50%;
+}
