@@ -1,20 +1,20 @@
 //parte 1
-const { readdir } = require('fs');
 const http = require('http');
-const path = process.argv[2];
+const fs = require('fs'); 
+const path = require('path'); 
+
 const server = http.createServer(function(req,res){
-  res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-  readdir(path, (err, files) => {
-    if (err) {
-      res.write('Não foi possível escanear o diretório: ' + err);
-      res.end();
-      return console.error('Não foi possível escanear o diretório: ' + err);
-    }
-    files.forEach(file => {
+res.writeHead(200,{"Content-Type":"text/html;charset=utf-8"});
+fs.readdir(__dirname, (err, files) => { 
+  if (err) 
+    console.log(err); 
+  else { 
+    files.forEach(file => { 
       res.write(file + '<br>');
-      console.log(file); 
-    });
-    res.end(); 
-  });
+    }) 
+  } 
+  res.end();
+}) 
+
 });
 server.listen(3333);
