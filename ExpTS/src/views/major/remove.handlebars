@@ -1,0 +1,10 @@
+<h3>Remover Curso</h3>
+<div class="col-6 alert alert-danger">
+    Tem certeza de que deseja remover o curso "{{major.name}}"?
+</div>
+<div>
+    <form action="/major/remove/{{major.id}}" method="post">
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+        <a href="/major" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
