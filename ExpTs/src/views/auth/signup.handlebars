@@ -1,0 +1,40 @@
+<h3>Cadastro de novo usuario</h3>
+<div class="col-6 ">
+<form action="/auth/signup" id="signup" method="post">
+<div class="mb-3">
+  <label for="fullname" class="form-label">Nome Completo</label>
+  <input type="text" class="form-control" id="fullname" name="fullname">
+</div> 
+<div class="mb-3">
+  <label for="email" class="form-label">E-mail</label>
+  <input type="text" class="form-control" id="email" name="email">
+</div> 
+<div class="mb-3">
+  <label for="description" class="form-label">Curso</label>
+  <select class="form-select" name="majorId">
+    {{#each majors}}
+    <option value="{{id}}">{{name}}</option>
+    {{/each}}
+</select>
+<div class="mb-3">
+  <label for="password" class="form-label">Senha</label>
+  <input type="password" class="form-control" id="password" name="password">
+</div> 
+<div class="mb-3">
+  <label for="repeat-password" class="form-label">Repita a senha</label>
+  <input type="password" class="form-control" id="repeat-password">
+</div> 
+</div>
+<button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+</div>
+
+
+<script>
+    const signup = document.getElementById("signup");
+    signup.addEventListener("submit", (e)=>{
+        const password = document.getElementById("password").value;
+        const repeatpassword = document.getElementById("repeat-password").value;
+        if(!password || password !== repeatpassword) e.preventDefault();
+    })
+</script>
